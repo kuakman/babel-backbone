@@ -1,0 +1,26 @@
+{
+    "name": "babel-backbone",
+    "version": "0.1.0",
+    "authors": [
+        "kuakman <3dimentionar@gmail.com>"
+    ],
+    "description": "Babel & Backbone Integration on ES6",
+    "dependencies": {
+        "backbone": "1.2.1",
+		"underscore": "1.8.3",
+		"jquery": "2.1.4"
+    },
+    "keywords": [
+        "babel",
+        "backbone",
+        "es6"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

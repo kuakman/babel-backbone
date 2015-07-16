@@ -1,0 +1,25 @@
+{
+    "name": "babel-backbone",
+    "version": "0.1.0",
+    "description": "Babel & Backbone Integration Research on ES6",
+    "main": "run.js",
+    "dependencies": {
+        "connect": "3.4.x",
+        "serve-static": "*",
+        "babel-connect": "6.0.0"
+    },
+    "scripts": {
+        "test": "make test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "none"
+    },
+    "keywords": [
+        "babel",
+        "backbone",
+        "es6"
+    ],
+    "author": "Patricio Ferreira <3dimentionar@gmail.com>",
+    "license": "MIT"
+}
