@@ -4,12 +4,14 @@ var babelMiddleware = require('babel-connect');
 var app = connect();
 
 app.use(babelMiddleware({
-	options: {},
+	options: {
+		modules: 'amd'
+	},
 	src: "src",
 	dest: "public",
-	ignore: /libs/
+	ignore: [/libs/, /config/]
 }));
 
 app.use(_static(__dirname + '/public'))
-	.use(_static(__dirname + '/node_modules/babel-connect/node_modules/babel-core'))
+	.use(_static(__dirname + '/src/config/'))
 	.listen(9393);
