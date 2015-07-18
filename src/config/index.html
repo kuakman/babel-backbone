@@ -2,10 +2,20 @@
 <html>
 	<head>
 		<title>Babel Backbone Integration on ES6</title>
-		<script src="libs/require/require.js" data-main="main"></script>
+		<script src="libs/require/require.js"></script>
 	</head>
 
 	<body>
 		<div id="global"></div>
+
+		<!-- Global Application Bootstraping -->
+		<script type="text/javascript">
+			require(['main'], function() {
+				require(['application'], function(Application) {
+					Application.bootstrap();
+				});
+			});
+		</script>
+
 	</body>
 </html>

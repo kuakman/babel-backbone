@@ -1,0 +1,49 @@
+/**
+*	Application View class
+*	@class Application
+*	@extends Backbone.View
+*
+*	@requires Backbone
+*	@requires view.MyView
+*	@requires model.MyModel
+**/
+
+import 'backbone';
+import View from 'view/myview';
+import Model from 'model/mymodel';
+
+export default class Application extends Backbone.View {
+
+	/**
+	*	@constructor
+	*	@param [attrs] {Object} optional attributes
+	**/
+	constructor(attrs = {}) {
+		super(attrs);
+		this.myview = new View({ model: this.model, parent: this });
+	}
+
+	/**
+	*	Render
+	*	@public
+	*	@method render
+	*	@return Application
+	**/
+	render() {
+		super.render();
+		this.myview.render();
+		return this;
+	}
+
+	/**
+	*	Application Bootstrap
+	*	@static
+	*	@method bootstrap
+	*	@return Application
+	**/
+	static bootstrap() {
+		var app = new Application({ el: 'div#global', model: new Model({ value: 'Hello Babel &amp; Backbone on ES6!' }) });
+		return app.render();
+	}
+
+}
