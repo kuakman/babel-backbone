@@ -6,6 +6,7 @@
     "dependencies": {
         "connect": "3.4.x",
         "serve-static": "*",
+        "babel-core": "5.7.4",
         "babel-connect": "6.0.0"
     },
     "scripts": {

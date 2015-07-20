@@ -10,13 +10,15 @@ requirejs.config({
 		text: 'libs/requirejs-text/text',
 		underscore: 'libs/underscore/underscore-min',
 		jquery: 'libs/jquery/dist/jquery.min',
+		babelhelpers: 'external-helpers',
 		backbone: 'libs/backbone/backbone-min'
 	},
 
 	shim: {
 		underscore: { exports: '_' },
 		jquery: ['underscore'],
-		backbone: ['jquery']
+		babelhelpers: ['jquery'],
+		backbone: ['babelhelpers']
 	}
 
 });
