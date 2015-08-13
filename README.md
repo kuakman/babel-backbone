@@ -11,7 +11,7 @@ To run the playground tool:
 * ```node run```
 * Open a brower and hit http://localhost:9393/index.html
 
-Some useful links about ES6/Babel docs to try them on using this playground. 
+Some useful links about ES6/Babel docs to try them out using this playground. 
 
 * https://babeljs.io/
 * https://github.com/lukehoban/es6features
