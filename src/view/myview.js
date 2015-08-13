@@ -7,7 +7,7 @@
 *	@requires partials.mytemplate
 **/
 
-import 'backbone';
+import Backbone from 'backbone';
 import MyViewHTML from 'text!mytemplate.html';
 
 export default class MyView extends Backbone.View {
@@ -42,9 +42,39 @@ export default class MyView extends Backbone.View {
 	**/
 	render() {
 		super.render();
-		this.setElement(this.parent.$el.append(this.el));
-		this.$el.html(this.template({ value: this.model.get('value') }));
+		this.parent.$el.append(this.el);
+		this.$el.html(this.template({ value: this.model.value, rows: this.model.rows }));
 		return this;
+	}
+
+	/**
+	*	Item Click Handler
+	*	@public
+	*	@method onItemClick
+	*	@param e {Object} event reference
+	*	@return view.MyView
+	**/
+	onItemClick(e) {
+		this.$el.children().css({
+			'background-color': 'transparent',
+			'color': 'black'
+		});
+		$(e.currentTarget).css({
+			'background-color': 'blue',
+			'color': 'white'
+		});
+		return this;
+	}
+
+	/**
+	*	Retrieves backbone events used by this view
+	*	@public
+	*	@override
+	*	@method className
+	*	@return String
+	**/
+	get events() {
+		return { 'click li.row': 'onItemClick' };
 	}
 
 	/**
@@ -65,7 +95,18 @@ export default class MyView extends Backbone.View {
 	*	@return String
 	**/
 	get tagName() {
-		return 'div';
+		return 'ul';
+	}
+
+	/**
+	*	Retrieves the classes used by this view.
+	*	@public
+	*	@override
+	*	@method className
+	*	@return String
+	**/
+	get className() {
+		return 'list';
 	}
 
 	/**

@@ -1,1 +1,4 @@
-<div class="myview"><%= value %></div>
+<li class="title"><%= obj.value %></li>
+<% if(obj.rows) { for(var r in obj.rows) { %>
+<li class="row" style="cursor: pointer;"><%= obj.rows[r].value %></li>
+<% } } %>

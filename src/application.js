@@ -8,7 +8,7 @@
 *	@requires model.MyModel
 **/
 
-import 'backbone';
+import Backbone from 'backbone';
 import View from 'view/myview';
 import Model from 'model/mymodel';
 
