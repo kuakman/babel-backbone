@@ -42,7 +42,13 @@ export default class Application extends Backbone.View {
 	*	@return Application
 	**/
 	static bootstrap() {
-		var app = new Application({ el: 'div#main', model: new Model({ value: 'Hello Babel &amp; Backbone on ES6!' }) });
+		var app = new Application({
+			el: 'div#main',
+			model: new Model(
+				{ value: 'Hello Babel &amp; Backbone on ES6!' },
+				{ value: 1 }, { value: 2 }, { value: 3 }
+			)
+		});
 		return app.render();
 	}
 

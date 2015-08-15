@@ -19,6 +19,7 @@ export default class MyView extends Backbone.View {
 	constructor(attrs = {}) {
 		super(attrs);
 		if(attrs.parent) { this._parent = attrs.parent; }
+		this.type = "Dynamic";
 	}
 
 	/**
@@ -35,6 +36,10 @@ export default class MyView extends Backbone.View {
 
 	/**
 	*	Render
+	*	@feature - Arrows '=>' like C++ or Scala
+	*	@feature - Enhanced Object Literals
+	*	@feature - String interpolation with `this.type`
+	*	@feature - Multiple string lines with no '+' operator, which is ilegal in ES5.
 	*	@public
 	*	@override
 	*	@method initialize
@@ -43,7 +48,12 @@ export default class MyView extends Backbone.View {
 	render() {
 		super.render();
 		this.parent.$el.append(this.el);
-		this.$el.html(this.template({ value: this.model.value, rows: this.model.rows }));
+		this.$el.html(this.template({
+			value: this.model.value,
+			rows: this.model.rows.map(v => function() { v.value++; return v; }()),
+			['literal' + this.model.rows[0].value]: `Enhanced Object Literal
+				ES6 feature ${this.type}`
+		}));
 		return this;
 	}
 

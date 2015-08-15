@@ -11,12 +11,12 @@ import Backbone from 'backbone';
 export default class MyModel extends Backbone.Model {
 
 	/**
+	*	@feature - Rest replaces 'arguments' by using '...'
 	*	@constructor
 	*	@param [attrs] {Object} optional attributes
 	**/
-	constructor(attrs = { value: "Hello ES6!" }) {
-		super(attrs);
-		return this;
+	constructor(attrs = { value: "Hello ES6!" }, ...rows) {
+		super(attrs, rows);
 	}
 
 	/**
@@ -45,13 +45,12 @@ export default class MyModel extends Backbone.Model {
 	*	@override
 	*	@method initialize
 	*	@param [attrs] {Object} optional attributes
+	*	@param rows {Array} optional rows
 	*	@return model.MyModel
 	**/
-	initialize(attrs = {}) {
+	initialize(attrs = {}, rows) {
 		super.initialize();
-		return this.set(_.extend(attrs, {
-			rows: new Backbone.Collection([{ value: 1 }, { value: 2 }, { value: 3 }])
-		}), { silent: true });
+		return this.set(_.extend(attrs, { rows: new Backbone.Collection(rows) }), { silent: true });
 	}
 
 }
